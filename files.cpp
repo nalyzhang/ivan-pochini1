@@ -13,7 +13,7 @@ void files::printList(StrL* lst) {
 
 VerticalList files::read() {
     VerticalList verticalList;
-    if (this->in.is_open()){
+    if (this->in.is_open()) {
         while (!this->in.eof()) {
             list l;
             if (this->in.is_open() == 1) {
@@ -29,8 +29,8 @@ VerticalList files::read() {
                     }
                     l.push_back(text, i);
                     delete[] text;
-                    if (this->in.eof()|| w == '\n') break;
-            }
+                    if (this->in.eof() || w == '\n') break;
+                }
                 for (StrL *node = l.getHead(); node != nullptr; node = node->getNext()) {
                     for (int j = 0; j < node->getSize(); j++)
                         std::cout << node->getData()[j];

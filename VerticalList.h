@@ -14,10 +14,12 @@ public:
     }
 
     ~VerticalList(){
-        while (this->head != nullptr) free(this->head);
+        while (this->head != nullptr) pop(this->head);
         if((this->head == nullptr)&&(this->tail == nullptr))
             std::cout << "Вертикальный список удален\n";
     }
+
+    void pop(VerticalStr* node);
 
     void pop_front();
 

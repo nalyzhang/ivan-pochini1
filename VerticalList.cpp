@@ -73,3 +73,14 @@ void VerticalList::earse(int k) {
     if (node == this->getTail()) this->setTail(left);
     delete node;
 }
+
+void VerticalList::pop(VerticalStr* node){
+    if (node == nullptr) {
+        free(node);
+        return;
+    }
+    else
+        pop(node->getVerticalStr());
+    free(node);
+}
+
