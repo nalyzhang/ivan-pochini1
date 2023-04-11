@@ -14,8 +14,9 @@ public:
     }
 
     ~VerticalList(){
-        while (this->head != nullptr) pop_front();
-        if((this->head == nullptr)&&(this->tail == nullptr)) std::cout << "Вертикальный список удален\n";
+        while (this->head != nullptr) free(this->head);
+        if((this->head == nullptr)&&(this->tail == nullptr))
+            std::cout << "Вертикальный список удален\n";
     }
 
     void pop_front();
@@ -28,11 +29,11 @@ public:
 
     void setTail(VerticalStr *t);
 
-    void push_back(const list& l);
+    void push_back(StrL* l);
 
     VerticalStr *getAt(int k);
 
-    void insert(int k, const list& l);
+    void insert(int k, StrL* l);
 
     void earse(int k);
 };

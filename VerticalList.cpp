@@ -24,11 +24,11 @@ void VerticalList::pop_front() { //удаление с начала
         this->head = this->tail = nullptr;
         return;
     }
-    free(head->getVerticalStr());
+    free(head);
 
 }
 
-void VerticalList::push_back(const list& data) { //добавление в конец
+void VerticalList::push_back(StrL* data) { //добавление в конец
     auto* node = new VerticalStr(data);
     if (this->getHead() == nullptr) this->setHead(node);
     if (this->getTail() != nullptr) this->getTail()->setVerticalStr(node);
@@ -48,7 +48,7 @@ VerticalStr* VerticalList::getAt(int k) { //доступ к элементу
 }
 
 //вствка элемента
-void VerticalList::insert(int k, const list& l){ //индекс k - индекс элемента, после которого нужно вставить объект
+void VerticalList::insert(int k, StrL* l){ //индекс k - индекс элемента, после которого нужно вставить объект
     VerticalStr* left = getAt(k);
     if (left == nullptr) return;
     VerticalStr* right = left->getVerticalStr();

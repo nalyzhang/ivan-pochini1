@@ -36,6 +36,8 @@ public:
     void insert(int k, char *text, int s);
 
     void earse(int k);
+
+    StrL* read(std::ifstream in);
 };
 
 #endif

@@ -8,9 +8,9 @@ protected:
     list lst;
     VerticalStr* vStr;
 public:
-    explicit VerticalStr(list l){
+    explicit VerticalStr(StrL* l){
         this->vStr = nullptr;
-        for (StrL* node = l.getHead(); node != nullptr; node = node->getNext()) this->lst.push_back(node->getData(), node->getSize());
+        for (StrL* node = l; node != nullptr; node = node->getNext()) this->lst.push_back(node->getData(), node->getSize());
     }
 
     ~VerticalStr() {

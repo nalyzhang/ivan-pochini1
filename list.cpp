@@ -1,3 +1,4 @@
+#include <fstream>
 #include "list.h"
 
 void list::setTail(StrL *t) {
@@ -71,4 +72,35 @@ void list::earse(int k) {
     left->setNext(right);
     if (node == this->getTail()) this->setTail(left);
     delete node;
+}
+
+StrL* list::read(std::ifstream in) {
+    if (in.is_open()){
+        while (true) {
+            if (in.is_open() == 1) {
+                char w;
+                in.unsetf(std::ios::skipws);
+                while (true) {
+                    int i = 0;
+                    char *text = new char[10];
+                    while (i < 10) {
+                        in >> w;
+                        if (in.eof() || (w == '\n')) break;
+                        text[i++] = w;
+                    }
+                    this->push_back(text, i);
+                    delete[] text;
+                    if (in.eof()|| w == '\n') break;
+                }
+                for (StrL *node = this->getHead(); node != nullptr; node = node->getNext()) {
+                    for (int j = 0; j < node->getSize(); j++)
+                        std::cout << node->getData()[j];
+                    std::cout << "->";
+                    if (node->getNext() == nullptr) std::cout << "NULL\n";
+                }
+                if (in.eof()) break;
+            }
+        }
+    } else this->setHead(nullptr);
+    return this->getHead();
 }

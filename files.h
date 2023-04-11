@@ -24,13 +24,9 @@ public:
 
     void result();
 
-    list readInL();
-
     VerticalList read();
 
-    void printList(list lst);
-
-    int Count();
+    void printList(StrL* lst);
 };
 
 #endif
